@@ -6,13 +6,13 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 07:11:41 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/23 07:12:45 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-# NAME = 
-BONUS_NAME = 
+NAME = 
+# BONUS_NAME = 
 
 CC = cc
 CFLAGS=-Wall -Wextra -Werror $(addprefix -I,$(INCLUDES))
@@ -21,17 +21,17 @@ ARFLAGS = rcs
 RM = rm -f
 RMDIR = rm -rf
 
-# SRCDIR = src
-BONUS_SRCDIR = src
-# OBJDIR = obj
-BONUS_OBJDIR = obj
+SRCDIR = src
+# BONUS_SRCDIR = src/bonus
+OBJDIR = obj
+# BONUS_OBJDIR = obj/bonus
 INCDIR = include
 LIBFTDIR = ../libft
 TMPDIR = ar_tmp
 
-# SRCFILES =	
+SRCFILES =	
 
-BONUS_SRCFILES = 
+# BONUS_SRCFILES = $(patsubst %.c, %_bonus.c, $(SRCFILES))
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
 BONUS_SRCS = $(addprefix $(BONUS_SRCDIR)/, $(BONUS_SRCFILES))
@@ -55,7 +55,7 @@ $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@mkdir -p $(@D)
+	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BONUS_OBJDIR)/%.o: $(BONUS_SRCDIR)/%.c
@@ -72,12 +72,13 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(BONUS_NAME)
+# bonus: $(BONUS_NAME)
 
-$(BONUS_NAME): $(BONUS_OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $@	
+# $(BONUS_NAME): $(BONUS_OBJS) $(LIBFT)
+# 	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $@	
 
-# test: all
-# 	$(VALGRIND) $(VALGRIND_FLAGS) ./test.sh
+test: all
+	@$(CC) $(CFLAGS) test.c $(LIBFT) -o test
+	$(VALGRIND) $(VALGRIND_FLAGS) ./test
 
 .PHONY:all clean fclean re test bonus
