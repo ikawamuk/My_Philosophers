@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:15:12 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 07:40:15 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 07:41:45 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define PHILO_H
 
 #include "config.h"
+
+int	philo(t_args args);
 
 #endif
