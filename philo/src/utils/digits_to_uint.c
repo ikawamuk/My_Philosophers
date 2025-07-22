@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.h                                           :+:      :+:    :+:   */
+/*   digits_to_uint.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 07:21:55 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 07:40:26 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/21 17:17:45 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/21 18:25:26 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_H
-# define CONFIG_H
+#include <stdint.h>
+#include <errno.h>
 
-# include <stdint.h>
-# include <stdlib.h>
-
-typedef struct s_args
+int	digits_to_uint(char *str, uint64_t *rev)
 {
-	uint64_t	philo_num;
-	uint64_t	life_time;
-	uint64_t	eat_time;
-	uint64_t	sleep_time;
-	uint64_t	must_eat;
-}	t_args;
+	int			i;
+	int			digit;
 
-typedef struct s_philo
-{
-	
-}	t_philo;
-
-#endif
+	*rev = 0;
+	i = 0;
+	errno = 0;
+	while (str[i])
+	{
+		digit = str[i] - '0';
+		if (i > 19 || *rev > (UINT64_MAX - digit) / 10)
+			return (1);
+		*rev *= 10;
+		*rev = *rev + digit;
+		i++;
+	}
+	return (0);
+}

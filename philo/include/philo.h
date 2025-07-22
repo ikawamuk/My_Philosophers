@@ -6,11 +6,13 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:15:12 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 07:15:33 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 07:40:15 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
+
+#include "config.h"
 
 #endif

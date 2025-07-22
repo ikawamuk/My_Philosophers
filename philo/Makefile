@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 07:12:45 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/23 07:39:29 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,12 @@ INCDIR = include
 LIBFTDIR = ../libft
 TMPDIR = ar_tmp
 
-SRCFILES =	
+SRCFILES =	main.c\
+			validate.c\
+			perse_arg.c\
+			$(addprefix utils/, \
+			digits_to_uint.c\
+			)
 
 # BONUS_SRCFILES = $(patsubst %.c, %_bonus.c, $(SRCFILES))
 
