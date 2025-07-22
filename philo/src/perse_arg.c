@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   perse_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 07:14:36 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 08:04:16 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/23 08:04:29 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/23 08:06:31 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
-#include <stdio.h>
+#include "config.h"
 
-int	perse_arg(int ac, char *av[], t_args *args);
-
-int	main(int ac, char *av[])
+int	perse_arg(int ac, char *av[], t_args *args)
 {
-	t_args	args;
-
-	if (perse_arg(ac, av, &args) == -1)
-		return (EXIT_FAILURE);
-
-	return (0);
+	if (validate() == -1)
+		return (-1);
 }
