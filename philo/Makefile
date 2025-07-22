@@ -6,12 +6,11 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 07:39:29 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/23 07:55:15 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME = 
+NAME = philo
 # BONUS_NAME = 
 
 CC = cc
@@ -26,7 +25,6 @@ SRCDIR = src
 OBJDIR = obj
 # BONUS_OBJDIR = obj/bonus
 INCDIR = include
-LIBFTDIR = ../libft
 TMPDIR = ar_tmp
 
 SRCFILES =	main.c\
@@ -34,46 +32,39 @@ SRCFILES =	main.c\
 			perse_arg.c\
 			$(addprefix utils/, \
 			digits_to_uint.c\
+			ft_isdigit.c\
+			print_invalid_arg.c\
 			)
 
 # BONUS_SRCFILES = $(patsubst %.c, %_bonus.c, $(SRCFILES))
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
-BONUS_SRCS = $(addprefix $(BONUS_SRCDIR)/, $(BONUS_SRCFILES))
+# BONUS_SRCS = $(addprefix $(BONUS_SRCDIR)/, $(BONUS_SRCFILES))
 
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
-BONUS_OBJS = $(patsubst $(BONUS_SRCDIR)/%.c, $(BONUS_OBJDIR)/%.o, $(BONUS_SRCS))
+# BONUS_OBJS = $(patsubst $(BONUS_SRCDIR)/%.c, $(BONUS_OBJDIR)/%.o, $(BONUS_SRCS))
 
-INCLUDES = $(INCDIR) $(LIBFTDIR)/include
+INCLUDES = $(INCDIR)
 
-LIBFT = $(LIBFTDIR)/libft.a
+# LIBFT = $(LIBFTDIR)/libft.a
 
 VALGRIND = valgrind
 VALGRIND_FLAGS = --leak-check=full --track-origins=yes --show-leak-kinds=all
 
-all: $(LIBFT) $(NAME) 
-
-$(LIBFT):
-	$(MAKE) -C $(LIBFTDIR)
+all: $(NAME) 
 	
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(BONUS_OBJDIR)/%.o: $(BONUS_SRCDIR)/%.c
-	@mkdir -p $(BONUS_OBJDIR)
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(MAKE) -C $(LIBFTDIR) clean	
-	@$(RMDIR) $(OBJDIR) $(BONUS_OBJDIR)
+	@$(RMDIR) $(OBJDIR)
 
 fclean: clean
-	$(MAKE) -C $(LIBFTDIR) fclean
-	$(RM) $(NAME) $(BONUS_NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
