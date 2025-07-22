@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 07:55:15 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/23 08:21:37 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,6 @@ SRCFILES =	main.c\
 			perse_arg.c\
 			$(addprefix utils/, \
 			digits_to_uint.c\
-			ft_isdigit.c\
-			print_invalid_arg.c\
 			)
 
 # BONUS_SRCFILES = $(patsubst %.c, %_bonus.c, $(SRCFILES))

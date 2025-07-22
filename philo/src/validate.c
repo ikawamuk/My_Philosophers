@@ -6,12 +6,16 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:06:46 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 08:08:26 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 08:20:54 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdbool.h>
+
+static int	print_usage(char *path);
+static bool	is_number(char *str);
+static int	ft_isdigit(int c);
 
 int	validate(int ac, char *av[])
 {
@@ -39,4 +43,20 @@ static bool	is_number(char *str)
 			return (false);
 	}
 	return (true);
+}
+
+static int	print_usage(char *path)
+{
+	printf("Usage: %s "\
+		"<number_of_philosophers> "\
+		"<time_to_die> "\
+		"<time_to_eat> "\
+		"<time_to_sleep> "\
+		"[number_of_times_each_philosopher_must_eat]\n", path);
+	return (-1);
+}
+
+static int	ft_isdigit(int c)
+{
+	return ('0' <= c && c <= '9');
 }
