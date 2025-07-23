@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:35:13 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:48:17 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,9 @@ int	philo(t_args args)
 
 	if (set_structure(args, &ctx, &philo) == -1)
 		return (-1);
+	// mallocしたもの: ctx->forks, philo, philo->finish, philo->finish_mutex
+	// mutex_initしたもの: philo->finish_mutex, 各 &philo->meal_time_mutex
+	// 　　　　　　　　　　  各philo->left_fork
+	
 	return (0);
 }
