@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 10:26:44 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 00:34:10 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:08:53 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ static int	all_philo_full(t_philo *philo, uint64_t *philo_full)
 
 	if (philo->ctx->must_eat == 0)
 		return (0);
-	pthread_mutex_lock(&philo->cmn->print_mutex);
-	pthread_mutex_lock(&philo->cmn->finished_mutex);
+
 	pthread_mutex_lock(&philo->meal_mutex);
+	pthread_mutex_lock(&philo->cmn->finished_mutex);
+	pthread_mutex_lock(&philo->cmn->print_mutex);
 	if (philo->eat_cnt >= philo->ctx->must_eat)
 		(*philo_full)++;
 	if (*philo_full == philo->ctx->philo_num)
@@ -84,12 +85,13 @@ static int	all_philo_full(t_philo *philo, uint64_t *philo_full)
 		now = get_timestamp(philo->ctx->start);
 		philo->cmn->finished = true;
 		printf("%lu\tAll philo are full!\n", now);
-		pthread_mutex_unlock(&philo->meal_mutex);
-		pthread_mutex_unlock(&philo->cmn->finished_mutex);
 		pthread_mutex_unlock(&philo->cmn->print_mutex);
+		pthread_mutex_unlock(&philo->cmn->finished_mutex);
+		pthread_mutex_unlock(&philo->meal_mutex);
 		return (1);
 	}
-	pthread_mutex_unlock(&philo->cmn->finished_mutex);
 	pthread_mutex_unlock(&philo->cmn->print_mutex);
+	pthread_mutex_unlock(&philo->cmn->finished_mutex);
+	pthread_mutex_unlock(&philo->meal_mutex);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 00:44:45 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:04:30 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	philo(t_args args)
 		free(ctx.forks);
 		return (-1);
 	}
-	ctx.start = get_ms();
 	create_threads(philo);
 	monitor_loop(philo);
 	join_threads(ctx, philo);
@@ -68,10 +67,7 @@ static void	join_threads(t_ctx ctx, t_philo *philo)
 
 	i = 0;
 	while (i < ctx.philo_num)
-	{
-		printf("thread finished: %lu\n", philo[i].thread);
 		pthread_join(philo[i++].thread, NULL);
-	}
 	return ;
 }
 
