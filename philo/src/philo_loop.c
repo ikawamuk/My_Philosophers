@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:53:41 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 03:12:35 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 03:45:42 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static void	wait_ready(t_philo *philo)
 
 static void	take_break(t_philo *philo)
 {
+	if (philo->ctx->philo_num <= 1)
+		return ; 
 	if ((philo->ctx->philo_num % 2) == 0)
 	{
 		if ((philo->id - 1) % 2 == 0)
@@ -76,14 +78,14 @@ static void	odd_case_sleep(t_philo *philo)
 
 	if ((philo->id - 1) % 2 == 0)
 	{
-		break_time = philo->ctx->eat_time / philo->ctx->philo_num;
-		break_time *= 2 * philo->ctx->philo_num - philo->id - 1;
+		break_time = philo->ctx->eat_time / (philo->ctx->philo_num - 1);
+		break_time *= 2 * philo->ctx->philo_num - philo->id;
 	}
 	else
 	{
-		break_time = philo->ctx->eat_time / philo->ctx->philo_num;
-		break_time *= philo->ctx->philo_num - philo->id - 1;
+		break_time = philo->ctx->eat_time / (philo->ctx->philo_num - 1);
+		break_time *= philo->ctx->philo_num - philo->id;
 	}
-	usleep(break_time);
+	usleep(break_time * 1000);
 	return ;
 }

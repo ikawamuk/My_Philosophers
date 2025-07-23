@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 12:44:54 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/24 04:00:52 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCFILES =	main.c\
 			get_ms.c\
 			get_timestamp.c\
 			print_state.c\
+			is_running.c\
 			)
 
 # BONUS_SRCFILES = $(patsubst %.c, %_bonus.c, $(SRCFILES))

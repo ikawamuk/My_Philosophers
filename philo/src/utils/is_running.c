@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sleeping.c                                         :+:      :+:    :+:   */
+/*   mutex_is_running.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 12:04:25 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 04:00:22 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/24 03:58:24 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/24 03:59:30 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int	sleeping(t_philo *philo)
+bool	is_runnning(t_philo *philo)
 {
-	uint64_t	start_sleep;
-	uint64_t	now;
+	bool		running;
 
-	start_sleep = print_state(philo, philo->id, "is sleeping");
-	now = start_sleep;
-	while (now - start_sleep < philo->ctx->sleep_time)
-	{
-		if (!is_runnning(philo))
-			return (1);
-		usleep(100);
-		now = get_timestamp(philo->ctx->start);
-	}
-	return (0);
+	pthread_mutex_lock(&philo->cmn->running_mutex);
+	running = philo->cmn->running;
+	pthread_mutex_unlock(&philo->cmn->running_mutex);
+	return (running);
 }

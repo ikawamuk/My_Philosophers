@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:37:11 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 00:07:26 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 03:59:45 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void		*ft_calloc(size_t nmemb, size_t size);
 uint64_t	get_ms(void);
 uint64_t	get_timestamp(uint64_t start);
 uint64_t	print_state(t_philo *philo, uint64_t id, char *state);
+bool		is_runnning(t_philo *philo);
 
 #endif
