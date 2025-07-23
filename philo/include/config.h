@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:21:55 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:04:38 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:21:22 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_philo
 	uint64_t		last_meal_time;
 	pthread_mutex_t	meal_time_mutex;
 	bool			*finished;
-	pthread_mutex_t	finished_mutex;
+	pthread_mutex_t	*finished_mutex;
 	uint64_t		id;
 	pthread_t		thread;
 	t_ctx			*ctx;
