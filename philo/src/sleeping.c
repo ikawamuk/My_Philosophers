@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:04:25 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 12:21:09 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 00:08:39 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ int	sleeping(t_philo *philo)
 	uint64_t	now;
 	bool		finished;
 
-	start_sleep = get_timestamp(philo->ctx->start);
-	print_state(philo, philo->id, "is sleeping");
+	start_sleep = print_state(philo, philo->id, "is sleeping");
 	now = start_sleep;
 	while (now - start_sleep < philo->ctx->sleep_time)
 	{
