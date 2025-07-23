@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:27:23 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 12:32:10 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:52:59 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,15 @@ int	eating(t_philo *philo)
 		finished = philo->cmn->finished;
 		pthread_mutex_unlock(&philo->cmn->finished_mutex);
 		if (finished)
+		{
+			pthread_mutex_unlock(philo->right_fork);
+			pthread_mutex_unlock(philo->left_fork);	
 			return (1);
+		}
 		usleep(100);
 		now = get_timestamp(philo->ctx->start);
 	}
-	return (0);	
+	pthread_mutex_unlock(philo->right_fork);
+	pthread_mutex_unlock(philo->left_fork);	
+	return (0);
 }
