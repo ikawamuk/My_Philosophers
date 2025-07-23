@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:53:41 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 10:28:28 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:04:11 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // int	thinking(t_philo *philo);
 // int	eating(t_philo *philo);
-// int	sleeping(t_philo *philo);
+int	sleeping(t_philo *philo);
 
 void	*philo_loop(void *arg)
 {
@@ -27,12 +27,8 @@ void	*philo_loop(void *arg)
 		// 	break ;
 		// if (eating(philo) == 1)
 		// 	break ;
-		// if (sleeping(philo) == 1)
-		// 	break ;
-		printf("hey\n");
-		usleep(1000000);
-		printf("yo\n");
-		usleep(1000000);
+		if (sleeping(philo) == 1)
+			break ;
 	}
 	return (NULL);
 }

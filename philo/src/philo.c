@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 11:55:55 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:03:15 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ static void	set_common(t_cmn *cmn)
 {
 	cmn->finished = 0;
 	pthread_mutex_init(&cmn->finished_mutex, NULL);
-	pthread_mutex_init(&cmn->print_mutex, NULL);	
+	pthread_mutex_init(&cmn->print_mutex, NULL);
 	return ;
 }
