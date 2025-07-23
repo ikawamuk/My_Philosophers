@@ -6,11 +6,11 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:37:11 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 11:30:01 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:57:37 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	UTILS_H
+#ifndef UTILS_H
 # define UTILS_H
 
 # include <stdint.h>
@@ -21,13 +21,9 @@
 # include <pthread.h>
 # include "config.h"
 
-int	set_structure(t_args args, t_cmn *cmn, t_ctx *ctx, t_philo **philos);
-
-int			create_threads(t_philo *philo);
-
-// utils
-int	digits_to_uint(char *str, uint64_t *rev);
-void	*ft_calloc(size_t nmemb, size_t size);
+int			digits_to_uint(char *str, uint64_t *rev);
+void		*ft_calloc(size_t nmemb, size_t size);
 uint64_t	get_ms(void);
+uint64_t	get_timestamp(uint64_t start);
 
 #endif

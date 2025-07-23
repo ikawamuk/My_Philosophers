@@ -6,15 +6,13 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:26:40 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 11:34:56 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:52:07 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-static int	alloc_finished_flag(bool **flag, pthread_mutex_t **mutex);
 static void	set_philo(t_philo *philo, uint64_t i, t_cmn *cmn, t_ctx *ctx);
-static void	set_fin_flag(t_philo *philo, bool *flag, pthread_mutex_t *mutex);
 
 int	set_philosophers(t_cmn *cmn, t_ctx *ctx, t_philo **philosophers)
 {

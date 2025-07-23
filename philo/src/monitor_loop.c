@@ -6,11 +6,13 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 10:26:44 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 11:23:27 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:56:34 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+static int	check_died(t_philo *philo, uint64_t now);
 
 void	monitor_loop(t_philo *philo)
 {
@@ -41,12 +43,12 @@ static int	check_died(t_philo *philo, uint64_t now)
 	pthread_mutex_unlock(&philo->meal_mutex);
 	if ((now - last_meal_time) > (philo->ctx->life_time))
 	{
-		pthread_mutex_lock(&philo->common->finished_mutex);
-		philo->common->finished = true;
-		pthread_mutex_unlock(&philo->common->finished_mutex);
-		pthread_mutex_lock(&philo->common->print_mutex);
+		pthread_mutex_lock(&philo->cmn->finished_mutex);
+		philo->cmn->finished = true;
+		pthread_mutex_unlock(&philo->cmn->finished_mutex);
+		pthread_mutex_lock(&philo->cmn->print_mutex);
 		printf("%lu\t%lu is died\n", now, philo->id);
-		pthread_mutex_unlock(&philo->common->print_mutex);
+		pthread_mutex_unlock(&philo->cmn->print_mutex);
 		return (1);
 	}
 	return (0);

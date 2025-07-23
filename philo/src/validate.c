@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:06:46 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:40:00 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:45:08 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ int	validate(int ac, char *av[])
 		return (print_usage(av[0]));
 	i = 1;
 	while (i < ac)
+	{
 		if (!is_number(av[i++]))
 		{
 			printf("Arguments may only contain digits 0-9");
 			return (-1);
 		}
+	}
 	return (0);
 }
 

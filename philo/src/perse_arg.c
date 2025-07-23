@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:04:29 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:39:08 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:44:54 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ static int	convert_argv(int ac, char *av[], t_args *args)
 		args->must_eat = 0;
 	return (0);
 }
-
 
 static int	invalid_value(int ac, t_args args)
 {

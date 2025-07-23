@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 10:19:48 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/23 11:58:28 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,15 +31,16 @@ SRCFILES =	main.c\
 			validate.c\
 			perse_arg.c\
 			philo.c\
-			set_structure.c\
 			set_ctx.c\
 			set_philosophers.c\
 			create_threads.c\
+			monitor_loop.c\
 			philo_loop.c\
 			$(addprefix utils/, \
 			digits_to_uint.c\
 			ft_calloc.c\
 			get_ms.c\
+			get_timestamp.c\
 			)
 
 # BONUS_SRCFILES = $(patsubst %.c, %_bonus.c, $(SRCFILES))
