@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 12:03:15 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 13:24:19 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	philo(t_args args)
 		free(ctx.forks);
 		return (-1);
 	}
+	ctx.start = get_ms();
 	create_threads(philo);
 	monitor_loop(philo);
 	join_threads(ctx, philo);
