@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:37:11 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 01:53:19 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 03:00:02 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ static int	take_fork(t_philo *philo, pthread_mutex_t *fork)
 		pthread_mutex_lock(fork);
 	print_state(philo, philo->id, "has taken a fork");
 	if (philo->ctx->philo_num == 1)
+	{
 		usleep(1000 * philo->ctx->life_time);
+		return (-1);
+	}
 	return (0);
 }

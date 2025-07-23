@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:53:41 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 02:18:18 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 03:12:35 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,19 @@ static void	wait_ready(t_philo *philo)
 {
 	while (1)
 	{
+		pthread_mutex_lock(&philo->meal_mutex);
 		pthread_mutex_lock(&philo->cmn->running_mutex);
 		if (philo->cmn->running)
 		{
-			pthread_mutex_lock(&philo->meal_mutex);
+			
 			philo->ctx->start = philo->cmn->start;
 			philo->last_meal_time = get_timestamp(philo->ctx->start);
-			pthread_mutex_unlock(&philo->meal_mutex);
 			pthread_mutex_unlock(&philo->cmn->running_mutex);
+			pthread_mutex_unlock(&philo->meal_mutex);
 			return ;
 		}
 		pthread_mutex_unlock(&philo->cmn->running_mutex);
+		pthread_mutex_unlock(&philo->meal_mutex);
 	}
 	return ;
 }

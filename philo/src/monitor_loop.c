@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 10:26:44 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 02:19:01 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 03:07:15 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ void	monitor_loop(t_philo *philo)
 	pthread_mutex_lock(&philo->cmn->running_mutex);
 	philo->cmn->running = true;
 	philo->cmn->start = get_ms();
+	philo->ctx->start = philo->cmn->start;
 	pthread_mutex_unlock(&philo->cmn->running_mutex);
 	while (1)
 	{
 		if (check_running(philo) == 0)
 			return ;
-		usleep(100);
+		usleep(500);
 	}
 	return ;
 }
