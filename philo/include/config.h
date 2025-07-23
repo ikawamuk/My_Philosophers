@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:21:55 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 11:34:19 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:51:05 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_args
 
 typedef struct s_common
 {
-	bool			finished;
-	pthread_mutex_t	finished_mutex;
+	bool			running;
+	pthread_mutex_t	running_mutex;
 	pthread_mutex_t	print_mutex;
 }	t_cmn;
 

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:27:23 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 00:41:51 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:52:39 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ int	eating(t_philo *philo)
 {
 	uint64_t	start_eat;
 	uint64_t	now;
-	bool		finished;
+	bool		running;
 
 	update_philo_state(philo, &start_eat, &now);
 	while (now - start_eat < philo->ctx->eat_time)
 	{
-		pthread_mutex_lock(&philo->cmn->finished_mutex);
-		finished = philo->cmn->finished;
-		pthread_mutex_unlock(&philo->cmn->finished_mutex);
-		if (finished)
+		pthread_mutex_lock(&philo->cmn->running_mutex);
+		running = philo->cmn->running;
+		pthread_mutex_unlock(&philo->cmn->running_mutex);
+		if (!running)
 		{
 			pthread_mutex_unlock(philo->right_fork);
 			pthread_mutex_unlock(philo->left_fork);

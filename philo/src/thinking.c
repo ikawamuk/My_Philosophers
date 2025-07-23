@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:37:11 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 01:24:15 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:53:19 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	thinking(t_philo *philo)
 
 static int	take_fork(t_philo *philo, pthread_mutex_t *fork)
 {
-	bool		finished;
+	bool		running;
 
-	pthread_mutex_lock(&philo->cmn->finished_mutex);
-	finished = philo->cmn->finished;
-	pthread_mutex_unlock(&philo->cmn->finished_mutex);
-	if (finished)
+	pthread_mutex_lock(&philo->cmn->running_mutex);
+	running = philo->cmn->running;
+	pthread_mutex_unlock(&philo->cmn->running_mutex);
+	if (!running)
 		return (-1);
 	if (philo->ctx->philo_num != 1)
 		pthread_mutex_lock(fork);

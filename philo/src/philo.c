@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 01:04:30 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:55:08 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	philo(t_args args)
 		return (-1);
 	if (set_philosophers(&cmn, &ctx, &philo) == -1)
 	{
-		pthread_mutex_destroy(&cmn.finished_mutex);
+		pthread_mutex_destroy(&cmn.running_mutex);
 		pthread_mutex_destroy(&cmn.print_mutex);
 		free(ctx.forks);
 		return (-1);
@@ -47,7 +47,7 @@ static void	clear_resouce(t_cmn *cmn, t_ctx *ctx, t_philo *philos)
 {
 	uint64_t	i;
 
-	pthread_mutex_destroy(&cmn->finished_mutex);
+	pthread_mutex_destroy(&cmn->running_mutex);
 	pthread_mutex_destroy(&cmn->print_mutex);
 	i = 0;
 	while (i < ctx->philo_num)
@@ -73,8 +73,8 @@ static void	join_threads(t_ctx ctx, t_philo *philo)
 
 static void	set_common(t_cmn *cmn)
 {
-	cmn->finished = 0;
-	pthread_mutex_init(&cmn->finished_mutex, NULL);
+	cmn->running = 0;
+	pthread_mutex_init(&cmn->running_mutex, NULL);
 	pthread_mutex_init(&cmn->print_mutex, NULL);
 	return ;
 }
