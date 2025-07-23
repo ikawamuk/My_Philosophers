@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:26:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 01:04:25 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 02:17:07 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	set_ctx(t_args args, t_ctx *ctx)
 	ctx->eat_time = args.eat_time;
 	ctx->sleep_time = args.sleep_time;
 	ctx->must_eat = args.must_eat;
-	ctx->start = get_ms();
+	ctx->start = 0;
 	ctx->forks = ft_calloc(ctx->philo_num, sizeof(pthread_mutex_t));
 	if (!ctx->forks)
 		return (-1);

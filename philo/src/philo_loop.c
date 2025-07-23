@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:53:41 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 01:56:12 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 02:18:18 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ static void	wait_ready(t_philo *philo)
 		pthread_mutex_lock(&philo->cmn->running_mutex);
 		if (philo->cmn->running)
 		{
+			pthread_mutex_lock(&philo->meal_mutex);
+			philo->ctx->start = philo->cmn->start;
+			philo->last_meal_time = get_timestamp(philo->ctx->start);
+			pthread_mutex_unlock(&philo->meal_mutex);
 			pthread_mutex_unlock(&philo->cmn->running_mutex);
 			return ;
 		}
@@ -58,7 +62,7 @@ static void	take_break(t_philo *philo)
 	if ((philo->ctx->philo_num % 2) == 0)
 	{
 		if ((philo->id - 1) % 2 == 0)
-			usleep(1000);
+			usleep(100);
 	}
 	else
 		odd_case_sleep(philo);
@@ -76,8 +80,8 @@ static void	odd_case_sleep(t_philo *philo)
 	else
 	{
 		break_time = philo->ctx->eat_time / philo->ctx->philo_num;
-		break_time *= philo->ctx->philo_num - philo->id - 1;		
+		break_time *= philo->ctx->philo_num - philo->id - 1;
 	}
-	usleep(100 * break_time);
+	usleep(break_time);
 	return ;
 }

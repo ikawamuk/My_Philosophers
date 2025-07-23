@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 01:55:08 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 02:01:28 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	join_threads(t_ctx ctx, t_philo *philo)
 
 static void	set_common(t_cmn *cmn)
 {
-	cmn->running = 0;
+	cmn->running = false;
 	pthread_mutex_init(&cmn->running_mutex, NULL);
 	pthread_mutex_init(&cmn->print_mutex, NULL);
 	return ;

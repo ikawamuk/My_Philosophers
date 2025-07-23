@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 10:26:44 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 01:55:43 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 02:19:01 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static int	all_philo_full(t_philo *philo, uint64_t *philo_full);
 void	monitor_loop(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->cmn->running_mutex);
-	philo->cmn->running = 1;
+	philo->cmn->running = true;
+	philo->cmn->start = get_ms();
 	pthread_mutex_unlock(&philo->cmn->running_mutex);
 	while (1)
 	{
@@ -58,7 +59,7 @@ static int	someone_died(t_philo *philo)
 	now = get_timestamp(philo->ctx->start);
 	if ((now - philo->last_meal_time) > (philo->ctx->life_time))
 	{
-		philo->cmn->running = true;
+		philo->cmn->running = false;
 		printf("%lu\t%lu %s\n", now, philo->id, "is died");
 		pthread_mutex_unlock(&philo->cmn->print_mutex);
 		pthread_mutex_unlock(&philo->cmn->running_mutex);
@@ -77,7 +78,6 @@ static int	all_philo_full(t_philo *philo, uint64_t *philo_full)
 
 	if (philo->ctx->must_eat == 0)
 		return (0);
-
 	pthread_mutex_lock(&philo->meal_mutex);
 	pthread_mutex_lock(&philo->cmn->running_mutex);
 	pthread_mutex_lock(&philo->cmn->print_mutex);
@@ -86,7 +86,7 @@ static int	all_philo_full(t_philo *philo, uint64_t *philo_full)
 	if (*philo_full == philo->ctx->philo_num)
 	{
 		now = get_timestamp(philo->ctx->start);
-		philo->cmn->running = true;
+		philo->cmn->running = false;
 		printf("%lu\tAll philo are full!\n", now);
 		pthread_mutex_unlock(&philo->cmn->print_mutex);
 		pthread_mutex_unlock(&philo->cmn->running_mutex);
