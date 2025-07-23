@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:26:40 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:40:17 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:42:36 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	set_philo(t_philo *philo, uint64_t i, t_ctx *ctx)
 	else
 		philo->right_fork = &ctx->forks[0];
 	philo->last_meal_time = 0;
-	pthread_mutex_init(philo->meal_time_mutex, NULL);
+	pthread_mutex_init(&philo->meal_time_mutex, NULL);
 	philo->id = i + 1;
 	philo->ctx = ctx;
 	return ;

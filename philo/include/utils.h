@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:37:11 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:39:52 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:42:19 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <sys/time.h>
+# include <pthread.h>
 # include "config.h"
 
 int	digits_to_uint(char *str, uint64_t *rev);
