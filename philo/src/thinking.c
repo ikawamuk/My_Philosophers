@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:37:11 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 12:45:20 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:56:09 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,26 @@ int	thinking(t_philo *philo)
 {
 	print_state(philo, philo->id, "is thinking");
 	if (philo->id % 2 == 0)
+		usleep(100);
+	// {
+	if (take_fork(philo, philo->left_fork) == -1)
+		return (1);
+	if (take_fork(philo, philo->right_fork) == -1)
 	{
-		if (take_fork(philo, philo->left_fork) == -1)
-			return (1);
-		if (take_fork(philo, philo->right_fork) == -1)
-		{
-			pthread_mutex_unlock(philo->left_fork);	
-			return (1);
-		}		
-	}
-	else
-	{
-		if (take_fork(philo, philo->right_fork) == -1)
-			return (1);
-		if (take_fork(philo, philo->left_fork) == -1)
-		{
-			pthread_mutex_unlock(philo->right_fork);	
-			return (1);
-		}			
-	}
+		pthread_mutex_unlock(philo->left_fork);	
+		return (1);
+	}		
+	// }
+	// else
+	// {
+	// 	if (take_fork(philo, philo->right_fork) == -1)
+	// 		return (1);
+	// 	if (take_fork(philo, philo->left_fork) == -1)
+	// 	{
+	// 		pthread_mutex_unlock(philo->right_fork);	
+	// 		return (1);
+	// 	}			
+	// }
 	return (0);
 }
 
