@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:45:43 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 12:12:42 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:16:28 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_state(t_philo *philo, uint64_t id, char *state)
 
 	pthread_mutex_lock(&philo->cmn->finished_mutex);
 	finished = philo->cmn->finished;
-	pthread_mutex_lock(&philo->cmn->finished_mutex);
+	pthread_mutex_unlock(&philo->cmn->finished_mutex);
 	pthread_mutex_lock(&philo->cmn->print_mutex);
 	time = get_timestamp(philo->ctx->start);
 	if (!finished)

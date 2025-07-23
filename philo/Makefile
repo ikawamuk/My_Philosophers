@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 12:13:01 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/23 12:15:01 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCFILES =	main.c\
 			create_threads.c\
 			monitor_loop.c\
 			philo_loop.c\
+			sleeping.c\
 			$(addprefix utils/, \
 			digits_to_uint.c\
 			ft_calloc.c\

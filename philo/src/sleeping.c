@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:04:25 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 12:13:31 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:21:09 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	sleeping(t_philo *philo)
 	{
 		pthread_mutex_lock(&philo->cmn->finished_mutex);
 		finished = philo->cmn->finished;
-		pthread_mutex_lock(&philo->cmn->finished_mutex);
+		pthread_mutex_unlock(&philo->cmn->finished_mutex);
 		if (finished)
 			return (1);
 		usleep(100);

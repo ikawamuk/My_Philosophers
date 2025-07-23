@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 10:26:44 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 12:14:26 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:19:05 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ static int	check_died(t_philo *philo, uint64_t now)
 		pthread_mutex_lock(&philo->cmn->finished_mutex);
 		philo->cmn->finished = true;
 		pthread_mutex_unlock(&philo->cmn->finished_mutex);
-		print_state(philo, philo->id, "is died");
+		pthread_mutex_lock(&philo->cmn->print_mutex);
+		printf("%lu\t%lu %s\n", now, philo->id, "is died");
+		pthread_mutex_unlock(&philo->cmn->print_mutex);
 		return (1);
 	}
 	return (0);
