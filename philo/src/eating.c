@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:27:23 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/24 00:22:16 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/24 00:41:51 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ static void	update_philo_state(t_philo *philo, uint64_t *start, uint64_t *now)
 	philo->eat_cnt++;
 	*start = philo->last_meal_time;
 	*now = *start;
-	pthread_mutex_lock(&philo->meal_mutex);	
+	pthread_mutex_unlock(&philo->meal_mutex);	
 }
