@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 10:23:22 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 10:25:26 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,14 @@ int	philo(t_args args)
 
 	if (set_structure(args, &ctx, &philo) == -1)
 		return (-1);
-	// mallocしたもの: ctx->forks, philo, philo->finish, philo->finish_mutex
-	// mutex_initしたもの: philo->finish_mutex, 各 &philo->meal_time_mutex
-	// 　　　　　　　　　　  各philo->left_fork
 	if (create_threads(philo) == -1)
 	{
 		clear_resouce(&ctx, &philo);
 		return (-1);
 	}
-	// pthread_createしたもの 各 philo->thread
 
 
-	
+
 	join_threads(ctx, philo);
 	return (0);
 }
