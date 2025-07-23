@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_ctx.c                                          :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 09:26:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:40:25 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/23 09:37:11 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/23 09:39:52 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#ifndef	UTILS_H
+# define UTILS_H
 
-int	set_ctx(t_args args, t_ctx *ctx)
-{
-	ctx->philo_num = args.philo_num;
-	ctx->life_time = args.life_time;
-	ctx->eat_time = args.eat_time;
-	ctx->sleep_time = args.sleep_time;
-	ctx->must_eat = args.must_eat;
-	ctx->start = get_ms();
-	ctx->forks = ft_calloc(ctx->philo_num, sizeof(pthread_mutex_t));
-	if (!ctx->forks)
-		return (-1);
-	return (0);
-}
+# include <stdint.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <stdbool.h>
+# include <sys/time.h>
+# include "config.h"
+
+int	digits_to_uint(char *str, uint64_t *rev);
+void	*ft_calloc(size_t nmemb, size_t size);
+uint64_t	get_ms(void);
+
+#endif

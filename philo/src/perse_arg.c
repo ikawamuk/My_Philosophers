@@ -6,15 +6,13 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:04:29 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 08:22:35 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:39:08 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "config.h"
+#include "utils.h"
 
 int			validate(int ac, char *av[]);
-int			digits_to_uint(char *str, uint64_t *rev);
 static int	convert_argv(int ac, char *av[], t_args *args);
 static int	invalid_value(int ac, t_args args);
 

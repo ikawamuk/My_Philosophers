@@ -6,12 +6,11 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:06:46 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 08:20:54 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:40:00 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdbool.h>
+#include "utils.h"
 
 static int	print_usage(char *path);
 static bool	is_number(char *str);

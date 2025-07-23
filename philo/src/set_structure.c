@@ -6,14 +6,14 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:06:07 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:35:31 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:40:05 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.h"
+#include "utils.h"
 
 int	set_ctx(t_args args, t_ctx *ctx);
-int	set_philosophers(t_ctx *ctx, t_philo **philosophers)e
+int	set_philosophers(t_ctx *ctx, t_philo **philosophers);
 
 int	set_structure(t_args args, t_ctx *ctx, t_philo **philosophers)
 {

@@ -6,11 +6,11 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:26:40 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:35:37 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:40:17 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.h"
+#include "utils.h"
 
 static int	alloc_finished_flag(bool **flag, pthread_mutex_t **mutex);
 static void	set_philo(t_philo *philo, uint64_t i, t_ctx *ctx);
