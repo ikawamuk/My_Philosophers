@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:53:41 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 10:24:09 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 10:28:28 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 void	*philo_loop(void *arg)
 {
 	t_philo	*philo;
-	// t_ctx	ctx;
 
 	philo = (t_philo *)arg;
 	while (1)
@@ -35,5 +34,5 @@ void	*philo_loop(void *arg)
 		printf("yo\n");
 		usleep(1000000);
 	}
-	return (&philo->id);
+	return (NULL);
 }
