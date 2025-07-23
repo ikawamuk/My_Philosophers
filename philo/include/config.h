@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:21:55 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:21:22 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 10:09:27 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <unistd.h>
 
 typedef struct s_args
 {

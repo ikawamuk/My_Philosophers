@@ -6,13 +6,34 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:53:41 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:54:00 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/23 10:24:09 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
+// int	thinking(t_philo *philo);
+// int	eating(t_philo *philo);
+// int	sleeping(t_philo *philo);
+
 void	*philo_loop(void *arg)
 {
-	
+	t_philo	*philo;
+	// t_ctx	ctx;
+
+	philo = (t_philo *)arg;
+	while (1)
+	{
+		// if (thinking(philo) ==1)
+		// 	break ;
+		// if (eating(philo) == 1)
+		// 	break ;
+		// if (sleeping(philo) == 1)
+		// 	break ;
+		printf("hey\n");
+		usleep(1000000);
+		printf("yo\n");
+		usleep(1000000);
+	}
+	return (&philo->id);
 }
