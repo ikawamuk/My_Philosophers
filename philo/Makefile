@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 08:26:43 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/23 09:34:56 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,9 @@ SRCFILES =	main.c\
 			validate.c\
 			perse_arg.c\
 			philo.c\
+			set_structure.c\
+			set_ctx,c\
+			set_philosophers.c\
 			$(addprefix utils/, \
 			digits_to_uint.c\
 			)
