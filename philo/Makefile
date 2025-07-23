@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 08:21:37 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/23 08:26:43 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ TMPDIR = ar_tmp
 SRCFILES =	main.c\
 			validate.c\
 			perse_arg.c\
+			philo.c\
 			$(addprefix utils/, \
 			digits_to_uint.c\
 			)

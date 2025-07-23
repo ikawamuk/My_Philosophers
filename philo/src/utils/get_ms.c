@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   get_ms.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:06:28 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/22 00:08:49 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/22 10:04:21 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.h"
+#include <stdlib.h>
+#include <stdint.h>
+#include <sys/time.h>
 
-int	philo(t_args args)
+uint64_t	get_ms(void)
 {
-	t_ctx	ctx;
-	t_philo	*philo;
+	uint64_t		now;
+	struct timeval	time;
 
-	if (set_structure(args, &ctx, &philo) == -1)
-		return (-1);
-	return (0);
+	gettimeofday(&time, NULL);
+	now = (uint64_t)(time.tv_sec) * 1000 + (uint64_t)(time.tv_usec) / 1000;
+	return (now);
 }

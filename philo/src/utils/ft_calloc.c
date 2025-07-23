@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:06:28 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/22 02:46:04 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/22 02:48:38 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.h"
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
 
-int	philo(t_args args)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_ctx	ctx;
-	t_philo	*philo;
+	void	*ptr;
 
-	if (set_structure(args, &ctx, &philo) == -1)
-		return (-1);
-	return (0);
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb > SIZE_MAX / size)
+		return (NULL);
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	memset(ptr, 0, nmemb * size);
+	return (ptr);
 }

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   set_structure.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 08:25:50 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/23 09:06:28 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/23 09:06:07 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/23 09:09:29 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "config.h"
 
-int	philo(t_args args)
+int	set_structure(t_args args, t_ctx *ctx, t_philo **philo)
 {
-	t_ctx	ctx;
-	t_philo	*philo;
-
-	if (set_structure(args, &ctx, &philo) == -1)
+	if (set_ctx(args, ctx) == -1)
 		return (-1);
 	return (0);
+}
+
+static int	set_ctx(t_args args, t_ctx *ctx)
+{
+	ctx->philo_num = args.philo_num;
+	ctx->life_time = args.life_time;
+	ctx->eat_time = args.eat_time;
+	ctx->sleep_time = args.sleep_time;
+	ctx->must_eat = args.must_eat;
+	ctx->start = get_ms();
+	ctx->forks = ft_calloc(ctx->philo_num, sizeof(pthread_mutex_t));
 }
