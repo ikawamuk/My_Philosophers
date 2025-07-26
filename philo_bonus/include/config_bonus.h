@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/26 13:38:15 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/26 16:07:58 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <semaphore.h>
+# include <sys/wait.h>
 
-# define SEM_NAME	"/forks"
+# define SEM_FORKS	"/forks"
+# define SEM_PRINT	"/print"
+
 
 typedef struct s_args
 {
