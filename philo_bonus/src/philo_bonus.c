@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:39:28 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/26 12:39:58 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/26 12:42:04 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 int	philo_bonus(t_args args)
 {
 	
+	return (0);
 }

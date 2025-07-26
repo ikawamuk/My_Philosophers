@@ -6,13 +6,13 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/23 07:11:41 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/26 12:43:36 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-# NAME = 
-BONUS_NAME = 
+NAME = $(BONUS_NAME)
+BONUS_NAME = philo_bonus
 
 CC = cc
 CFLAGS=-Wall -Wextra -Werror $(addprefix -I,$(INCLUDES))
@@ -51,8 +51,7 @@ all: $(LIBFT) $(NAME)
 $(LIBFT):
 	$(MAKE) -C $(LIBFTDIR)
 	
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
+$(NAME): $(BONUS_NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(@D)
