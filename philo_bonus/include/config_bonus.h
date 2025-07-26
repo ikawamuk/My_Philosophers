@@ -6,17 +6,22 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/26 12:38:28 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/26 13:38:15 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONFIG_BONUS_H
 # define CONFIG_BONUS_H
 
+# include <stdio.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <semaphore.h>
+
+# define SEM_NAME	"/forks"
 
 typedef struct s_args
 {

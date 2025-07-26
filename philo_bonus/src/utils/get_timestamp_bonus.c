@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.h                                      :+:      :+:    :+:   */
+/*   get_timestamp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 12:40:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/26 13:38:47 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/22 00:39:25 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/23 10:41:49 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_BONUS_H
-# define UTILS_BONUS_H
+#include <stdint.h>
+#include <sys/time.h>
+#include <stdio.h>
 
-#include "config_bonus.h"
-
-int			digits_to_uint(char *str, uint64_t *rev);
-void		*ft_calloc(size_t nmemb, size_t size);
 uint64_t	get_ms(void);
-uint64_t	get_timestamp(uint64_t start);
 
-#endif
+uint64_t	get_timestamp(uint64_t start)
+{
+	uint64_t	now;
+
+	now = get_ms();
+	return (now - start);
+}

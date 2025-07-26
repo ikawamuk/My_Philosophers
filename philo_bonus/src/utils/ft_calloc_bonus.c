@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.h                                      :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 12:40:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/26 13:38:47 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/22 02:46:04 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/22 02:48:38 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_BONUS_H
-# define UTILS_BONUS_H
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
 
-#include "config_bonus.h"
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
 
-int			digits_to_uint(char *str, uint64_t *rev);
-void		*ft_calloc(size_t nmemb, size_t size);
-uint64_t	get_ms(void);
-uint64_t	get_timestamp(uint64_t start);
-
-#endif
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb > SIZE_MAX / size)
+		return (NULL);
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	memset(ptr, 0, nmemb * size);
+	return (ptr);
+}

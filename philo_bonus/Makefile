@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/26 12:43:36 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/26 13:40:34 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,16 @@ TMPDIR = ar_tmp
 
 # SRCFILES =	
 
-BONUS_SRCFILES = 
+BONUS_SRCFILES =	main_bonus.c\
+					perse_arg_bonus.c\
+					validate_bonus.c\
+					philo_bonus.c\
+					$(addprefix utils/, \
+					digits_to_uint_bonus.c\
+					ft_calloc_bonus.c\
+					get_ms_bonus.c\
+					get_timestamp_bonus.c\
+					)
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
 BONUS_SRCS = $(addprefix $(BONUS_SRCDIR)/, $(BONUS_SRCFILES))
@@ -41,15 +50,10 @@ BONUS_OBJS = $(patsubst $(BONUS_SRCDIR)/%.c, $(BONUS_OBJDIR)/%.o, $(BONUS_SRCS))
 
 INCLUDES = $(INCDIR) $(LIBFTDIR)/include
 
-LIBFT = $(LIBFTDIR)/libft.a
-
 VALGRIND = valgrind
 VALGRIND_FLAGS = --leak-check=full --track-origins=yes --show-leak-kinds=all
 
-all: $(LIBFT) $(NAME) 
-
-$(LIBFT):
-	$(MAKE) -C $(LIBFTDIR)
+all: $(NAME) 
 	
 $(NAME): $(BONUS_NAME)
 
@@ -58,23 +62,21 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BONUS_OBJDIR)/%.o: $(BONUS_SRCDIR)/%.c
-	@mkdir -p $(BONUS_OBJDIR)
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(MAKE) -C $(LIBFTDIR) clean	
 	@$(RMDIR) $(OBJDIR) $(BONUS_OBJDIR)
 
 fclean: clean
-	$(MAKE) -C $(LIBFTDIR) fclean
 	$(RM) $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
 bonus: $(BONUS_NAME)
 
-$(BONUS_NAME): $(BONUS_OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $@	
+$(BONUS_NAME): $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) -o $@	
 
 # test: all
 # 	$(VALGRIND) $(VALGRIND_FLAGS) ./test.sh

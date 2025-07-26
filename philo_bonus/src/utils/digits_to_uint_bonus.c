@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.h                                      :+:      :+:    :+:   */
+/*   digits_to_uint.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 12:40:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/26 13:38:47 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/21 17:17:45 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/23 08:10:59 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_BONUS_H
-# define UTILS_BONUS_H
+#include <stdint.h>
 
-#include "config_bonus.h"
+int	digits_to_uint(char *str, uint64_t *rev)
+{
+	int			i;
+	int			digit;
 
-int			digits_to_uint(char *str, uint64_t *rev);
-void		*ft_calloc(size_t nmemb, size_t size);
-uint64_t	get_ms(void);
-uint64_t	get_timestamp(uint64_t start);
-
-#endif
+	*rev = 0;
+	i = 0;
+	while (str[i])
+	{
+		digit = str[i] - '0';
+		if (i > 19 || *rev > (UINT64_MAX - digit) / 10)
+			return (-1);
+		*rev *= 10;
+		*rev = *rev + digit;
+		i++;
+	}
+	return (0);
+}
