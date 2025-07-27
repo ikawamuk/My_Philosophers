@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_process_bonus.c                              :+:      :+:    :+:   */
+/*   sleeping_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 16:35:47 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 20:58:06 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/27 20:58:38 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/27 20:59:50 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
-void	philo_process(uint64_t id, sem_t *running_sem, t_args args)
+int	sleeping(uint64_t start, uint64_t id, t_args args)
 {
-	uint64_t	start;
-
-	sem_wait(running_sem);
-	start = get_ms();
-	if (id % 2 == 0)
-		usleep(1000 * args.eat_time / 3);
-	while (1)
-	{
-		if (thinking(start, id, args) == 1)
-			break ;
-		if (eating() == 1)
-			break ;
-		if (sleeping() == 1)
-			break ;
-	}
-	exit(0);
+	
+	return (0);
 }

@@ -6,11 +6,13 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 16:14:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/26 16:58:19 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 20:56:11 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
+
+void	philo_process(uint64_t id, sem_t *running_sem, t_args args);
 
 int	philo_bonus(t_args args)
 {
