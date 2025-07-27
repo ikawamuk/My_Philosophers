@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 22:17:17 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 22:39:23 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ typedef struct s_args
 
 typedef struct s_sems
 {
-	sem_t		*running;
-	sem_t		*forks;
-	sem_t		*print;
+	sem_t	*running;
+	sem_t	*forks;
+	sem_t	*print;
+	sem_t	*meal;
 }	t_sems;
 
 typedef struct s_philo
@@ -51,6 +52,7 @@ typedef struct s_philo
 	sem_t		*running;
 	sem_t		*forks;
 	sem_t		*print;
+	sem_t		*meal;
 	uint64_t	start;
 	uint64_t	last_meal_time;
 	uint64_t	eat_cnt;

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 16:14:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 22:36:45 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 22:41:34 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static t_sems	set_sem(t_args args)
 	sem_unlink(SEM_FORKS);
 	sem.forks = sem_open(SEM_RUNNING, O_CREAT, 0644, args.philo_num);
 	sem_unlink(SEM_PRINT);
-	sem.print = sem_open(SEM_RUNNING, O_CREAT, 0644, 1); 
+	sem.print = sem_open(SEM_RUNNING, O_CREAT, 0644, 1);
 	return (sem);
 }
 
