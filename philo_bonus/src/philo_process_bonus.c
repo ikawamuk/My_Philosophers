@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 16:35:47 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 20:58:06 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 21:02:57 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 void	philo_process(uint64_t id, sem_t *running_sem, t_args args)
 {
-	uint64_t	start;
+	t_philo	philo;
 
+	philo = set_philo(id, running_sem, args);
 	sem_wait(running_sem);
-	start = get_ms();
+	philo.start = get_ms();
 	if (id % 2 == 0)
 		usleep(1000 * args.eat_time / 3);
 	while (1)
 	{
-		if (thinking(start, id, args) == 1)
+		if (thinking(philo) == 1)
 			break ;
-		if (eating() == 1)
+		if (eating(philo) == 1)
 			break ;
-		if (sleeping() == 1)
+		if (sleeping(philo) == 1)
 			break ;
 	}
 	exit(0);
