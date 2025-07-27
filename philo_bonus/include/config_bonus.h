@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 22:04:09 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 22:17:17 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ typedef struct s_args
 	uint64_t	sleep_time;
 	uint64_t	must_eat;
 }	t_args;
+
+typedef struct s_sems
+{
+	sem_t		*running;
+	sem_t		*forks;
+	sem_t		*print;
+}	t_sems;
 
 typedef struct s_philo
 {
