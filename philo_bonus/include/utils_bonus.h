@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:40:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 21:04:08 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 21:05:15 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ int			digits_to_uint(char *str, uint64_t *rev);
 void		*ft_calloc(size_t nmemb, size_t size);
 uint64_t	get_ms(void);
 uint64_t	get_timestamp(uint64_t start);
-t_philo		set_philo(uint64_t id, sem_t *running_sem, t_args args);
 
 #endif
