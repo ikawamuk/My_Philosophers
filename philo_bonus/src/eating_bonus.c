@@ -6,13 +6,13 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 20:59:10 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 20:59:23 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 21:53:43 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
-int	eating(uint64_t start, uint64_t id, t_args args)
+int	eating(t_philo *philo, t_args args)
 {
 	return (0);
 }
