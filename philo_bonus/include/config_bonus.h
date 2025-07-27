@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 21:00:11 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 21:19:41 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ typedef struct s_philo
 {
 	uint64_t	id;
 	pid_t		pid;
-	sem_t		forks;
-	sem_t		print;
-	sem_t		finished;
+	sem_t		*forks;
+	sem_t		*print;
+	sem_t		*running;
 	uint64_t	start;
 	uint64_t	last_meal_time;
 	uint64_t	eat_cnt;
