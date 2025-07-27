@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 21:51:30 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 22:04:09 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_philo
 {
 	uint64_t	id;
 	pid_t		pid;
+	bool		*is_running;
 	sem_t		*running;
 	sem_t		*forks;
 	sem_t		*print;

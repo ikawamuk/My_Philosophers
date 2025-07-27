@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.h                                      :+:      :+:    :+:   */
+/*   print_state_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 12:40:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 22:00:26 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/27 21:56:19 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/27 21:59:39 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_BONUS_H
-# define UTILS_BONUS_H
+#include "utils_bonus.h"
 
-#include "config_bonus.h"
+uint64_t	print_state(t_philo *philo, char *state)
+{
+	uint64_t	time;
 
-uint64_t	print_state(t_philo *philo, char *state);
-int			digits_to_uint(char *str, uint64_t *rev);
-void		*ft_calloc(size_t nmemb, size_t size);
-uint64_t	get_ms(void);
-uint64_t	get_timestamp(uint64_t start);
-
-#endif
+	sem_wait(philo->running);
+	sem_wait(philo->print);
+	time = get_timestamp(philo->start);
+	if (philo->running)
+		printf("%lu\t%lu %s", time, philo->id, state);
+	sem_post(philo->print);
+	sem_post(philo->running);
+	return (time);
+}

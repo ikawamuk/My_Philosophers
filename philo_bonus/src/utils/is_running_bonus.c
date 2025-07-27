@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.h                                      :+:      :+:    :+:   */
+/*   is_running_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 12:40:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 22:00:26 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/27 22:02:15 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/27 22:04:16 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_BONUS_H
-# define UTILS_BONUS_H
+#include "utils_bonus.h"
 
-#include "config_bonus.h"
+bool	is_running(t_philo *philo)
+{
+	bool	running;
 
-uint64_t	print_state(t_philo *philo, char *state);
-int			digits_to_uint(char *str, uint64_t *rev);
-void		*ft_calloc(size_t nmemb, size_t size);
-uint64_t	get_ms(void);
-uint64_t	get_timestamp(uint64_t start);
-
-#endif
+	sem_wait(philo->running);
+	running = philo->is_running;
+	sem_post(philo->running);
+	return (running);
+}

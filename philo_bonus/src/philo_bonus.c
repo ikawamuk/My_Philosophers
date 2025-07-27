@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 16:14:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 21:50:09 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/27 21:55:02 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	philo_bonus(t_args args)
 	sem_unlink(SEM_RUNNING);
 	running_sem = sem_open(SEM_RUNNING, O_CREAT, 0644, 0);  // set_sem()
 	sem_unlink(SEM_FORKS);
-	forks_sem = sem_open(SEM_RUNNING, O_CREAT, 0644, 0);
+	forks_sem = sem_open(SEM_RUNNING, O_CREAT, 0644, args.philo_num);
 	sem_unlink(SEM_PRINT);
-	print_sem = sem_open(SEM_RUNNING, O_CREAT, 0644, 0); 
+	print_sem = sem_open(SEM_RUNNING, O_CREAT, 0644, 1); 
 	
 	philo = ft_calloc(args.philo_num, sizeof(t_philo));
 	if (!philo)
