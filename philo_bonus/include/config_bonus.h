@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/28 22:42:24 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 00:57:27 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,8 @@ typedef struct s_philo
 	uint64_t	id;
 	pid_t		pid;
 	bool		*is_running;
-	sem_t		*running;
-	sem_t		*forks;
-	sem_t		*print;
-	sem_t		*meal;
+	t_sems		sem;
+	t_args		args;
 	uint64_t	start;
 	uint64_t	last_meal_time;
 	uint64_t	eat_cnt;

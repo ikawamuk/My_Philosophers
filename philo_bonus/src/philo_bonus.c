@@ -6,15 +6,15 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 16:14:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/28 22:43:57 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 00:58:32 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
 static t_sems	set_sem(t_args args);
-t_philo			set_philo(uint64_t id, t_sems *sem, bool *in_running);
-void			philo_process(t_philo *philo, t_args args);
+t_philo			set_philo(uint64_t id, t_sems *sem, bool *flag, t_args args);
+void			philo_process(t_philo *philo);
 static int		run_simulation(uint64_t num, sem_t *running_sem, bool is_running);
 
 int	philo_bonus(t_args args)
@@ -33,10 +33,10 @@ int	philo_bonus(t_args args)
 	i = 0;
 	while (i++ < args.philo_num)
 	{
-		philo[i] = set_philo(i + 1, &sem, &is_running);
+		philo[i] = set_philo(i + 1, &sem, &is_running, args);
 		philo[i].pid = fork();
 		if (philo[i].pid == 0)	
-			philo_process(&philo[i], args);
+			philo_process(&philo[i]);
 	}
 	run_simulation(args.philo_num, sem.running, is_running);
 	return (0);
@@ -47,11 +47,12 @@ static t_sems	set_sem(t_args args)
 	t_sems sem;
 
 	sem_unlink(SEM_RUNNING);
-	sem.running = sem_open(SEM_RUNNING, O_CREAT, 0644, 0);  // set_sem()
+	sem.running = sem_open(SEM_RUNNING, O_CREAT, 0644, 0);
 	sem_unlink(SEM_FORKS);
 	sem.forks = sem_open(SEM_RUNNING, O_CREAT, 0644, args.philo_num);
 	sem_unlink(SEM_PRINT);
 	sem.print = sem_open(SEM_RUNNING, O_CREAT, 0644, 1);
+	sem.meal = NULL;
 	return (sem);
 }
 

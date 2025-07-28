@@ -6,13 +6,13 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 20:59:10 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/28 22:34:11 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 00:59:42 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
-int	eating(t_philo *philo, t_args args)
+int	eating(t_philo *philo)
 {
 	uint64_t	start_eat;
 	uint64_t	now;
@@ -23,6 +23,6 @@ int	eating(t_philo *philo, t_args args)
 
 static void	update_philo_state(t_philo *philo, uint64_t *start, uint64_t *now)
 {
-	sem_wait(philo->meal);
+	sem_wait(philo->sem.meal);
 	
 }

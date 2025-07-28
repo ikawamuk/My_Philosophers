@@ -6,13 +6,13 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 20:56:34 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 21:54:19 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 00:59:31 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
-int	thinking(t_philo *philo, t_args args)
+int	thinking(t_philo *philo)
 {
 	
 	return (0);
