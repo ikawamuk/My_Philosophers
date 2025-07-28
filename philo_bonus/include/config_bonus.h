@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 00:57:27 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 01:00:54 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define SEM_FORKS		"/forks"
 # define SEM_PRINT		"/print"
 # define SEM_RUNNING	"/running"
+# define SEM_MEAL		"/meal"
 
 
 typedef struct s_args
