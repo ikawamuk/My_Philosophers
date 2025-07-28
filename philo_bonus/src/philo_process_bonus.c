@@ -6,19 +6,20 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 16:35:47 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/28 22:34:44 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/28 22:44:34 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
-int			thinking(t_philo *philo, t_args args);
-int			eating(t_philo *philo, t_args args);
-int			sleeping(t_philo *philo, t_args args);
+void	create_monitor(t_philo *philo, t_args args);
+int		thinking(t_philo *philo, t_args args);
+int		eating(t_philo *philo, t_args args);
+int		sleeping(t_philo *philo, t_args args);
 
 void		philo_process(t_philo *philo, t_args args)
 {
-	create_monitor();
+	create_monitor(philo, args);
 	sem_wait(philo->running);
 	philo->start = get_ms();
 	if (philo->id % 2 == 0)
@@ -32,5 +33,6 @@ void		philo_process(t_philo *philo, t_args args)
 		if (sleeping(philo, args) == 1)
 			break ;
 	}
+	pthread_join(philo->thread, NULL);
 	exit(0);
 }
