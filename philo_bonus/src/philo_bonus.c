@@ -6,15 +6,16 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 16:14:08 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 22:41:34 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/28 22:40:10 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
 static t_sems	set_sem(t_args args);
-t_philo	set_philo(uint64_t id, t_sems *sem, bool *in_running);
-void	philo_process(t_philo *philo, t_args args);
+t_philo			set_philo(uint64_t id, t_sems *sem, bool *in_running);
+void			philo_process(t_philo *philo, t_args args);
+static int		run_simulation(uint64_t num, sem_t *running_sem, bool is_running);
 
 int	philo_bonus(t_args args)
 {

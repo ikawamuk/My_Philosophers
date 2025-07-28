@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 16:35:47 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/27 21:54:17 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/28 22:34:44 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int			sleeping(t_philo *philo, t_args args);
 
 void		philo_process(t_philo *philo, t_args args)
 {
+	create_monitor();
 	sem_wait(philo->running);
 	philo->start = get_ms();
 	if (philo->id % 2 == 0)

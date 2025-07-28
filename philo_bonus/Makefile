@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 13:17:32 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/27 21:05:01 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/28 22:33:48 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,10 @@ BONUS_SRCFILES =	main_bonus.c\
 					validate_bonus.c\
 					philo_bonus.c\
 					set_philo_bonus.c\
+					philo_process_bonus.c\
+					thinking_bonus.c\
+					eating_bonus.c\
+					sleeping_bonus.c\
 					$(addprefix utils/, \
 					digits_to_uint_bonus.c\
 					ft_calloc_bonus.c\
