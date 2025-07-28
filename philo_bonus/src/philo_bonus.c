@@ -6,7 +6,14 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 02:43:46 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 02:43:47 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 02:45:22 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "utils_bonus.h"
+
+int	philo_bonus(t_args args)
+{
+	(void)args;
+	return (0);
+}
