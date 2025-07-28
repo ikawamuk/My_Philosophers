@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 02:38:16 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/29 02:38:19 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/29 02:44:11 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,15 @@ TMPDIR = ar_tmp
 
 # SRCFILES =	
 
-BONUS_SRCFILES =	\
+BONUS_SRCFILES =	main_bonus.c\
+					perse_arg_bonus.c\
+					validate_bonus.c\
+					philo_bonus.c\
 					$(addprefix utils/, \
+					digits_to_uint_bonus.c\
+					ft_calloc_bonus.c\
+					get_ms_bonus.c\
+					get_timestamp_bonus.c\
 					)
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
