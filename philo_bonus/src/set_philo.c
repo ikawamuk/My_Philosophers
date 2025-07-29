@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config_bonus.h                                     :+:      :+:    :+:   */
+/*   set_philo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 11:45:03 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/29 11:45:43 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/29 11:46:12 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_BONUS_H
-# define CONFIG_BONUS_H
+#include "utils_bonus.h"
 
-# include <stdlib.h>
-# include <stdint.h>
-# include <stdbool.h>
-# include <stdio.h>
-
-typedef struct s_args
+t_philo	set_philo(t_args args)
 {
-	uint64_t	philo_num;
-	uint64_t	life_time;
-	uint64_t	eat_time;
-	uint64_t	sleep_time;
-	uint64_t	must_eat;
-}	t_args;
+	t_philo	philo;
 
-typedef struct s_philo
-{
-	t_args	args;
-}	t_philo;
-
-#endif
+	
+	return (philo);
+}
