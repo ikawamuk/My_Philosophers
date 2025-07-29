@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 02:38:16 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/29 12:28:34 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/29 13:50:25 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ VALGRIND_FLAGS = --leak-check=full --track-origins=yes --show-leak-kinds=all
 
 all: $(NAME) 
 	
-$(NAME): $(BONUS_NAME)
+$(NAME):
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(@D)

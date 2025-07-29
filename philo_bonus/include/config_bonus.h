@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 13:26:35 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:29:38 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <semaphore.h>
 # include <fcntl.h>
 # include <pthread.h>
+# include <sys/wait.h>
 
 # define SEM_FORKS		"/forks"
 # define SEM_PRINT		"/print"

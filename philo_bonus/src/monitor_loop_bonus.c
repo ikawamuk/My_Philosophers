@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:22:04 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 13:27:27 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:48:58 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	*monitor_loop(void *args)
 	while (1)
 	{
 		if (someone_died(philo))
-			break ;
+			break ;	
 		if (is_all_full(philo))
 			break ;
 		usleep(500);
+		
 	}
 	return (NULL);
 }
@@ -39,6 +40,7 @@ static bool	someone_died(t_philo *philo)
 	sem_wait(philo->meal);
 	sem_wait(philo->running);
 	sem_wait(philo->print);
+	
 	now = get_timestamp(philo->start);
 	if (now - philo->last_meal_time > philo->args.life_time)
 	{
