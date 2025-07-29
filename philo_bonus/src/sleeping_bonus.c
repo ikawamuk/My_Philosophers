@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:29:24 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 20:39:20 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:46:35 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	sleeping(t_philo *philo)
 		usleep(100);
 		now = get_timestamp(philo->start);
 	}
-	usleep(100);
+	usleep(200);
 	return (0);
 }
