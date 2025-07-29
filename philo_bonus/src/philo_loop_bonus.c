@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_process_bonus.c                              :+:      :+:    :+:   */
+/*   philo_loop_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:13:49 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 12:20:45 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:28:21 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int		thinking(t_philo *philo);
 int		eating(t_philo *philo);
 int		sleeping(t_philo *philo);
 
-void	philo_process(t_philo *philo)
+void	philo_loop(t_philo *philo)
 {
 	sem_unlink(SEM_MEAL);
 	philo->meal = sem_open(SEM_MEAL, O_CREAT, 600, 1);
-	pthread_create(philo->thread, NULL, monitor_loop, (void *)philo);
+	pthread_create(&philo->thread, NULL, monitor_loop, (void *)philo);
 	sem_wait(philo->running);
 	philo->start = get_ms();
 	if (philo->id % 2 == 0)

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:22:04 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 13:25:59 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:27:27 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ static bool	someone_died(t_philo *philo)
 	now = get_timestamp(philo->start);
 	if (now - philo->last_meal_time > philo->args.life_time)
 	{
-		philo->someone_died = true;
+		*philo->someone_died = true;
 		printf("%lu\t%lu %s\n", now, philo->id, "is died");
 	}
-	died = philo->someone_died;
+	died = *philo->someone_died;
 	sem_post(philo->print);
 	sem_post(philo->running);
 	sem_post(philo->meal);
@@ -62,8 +62,8 @@ static bool	is_all_full(t_philo *philo)
 	sem_wait(philo->running);
 	sem_wait(philo->print);
 	if (philo->eat_cnt == philo->args.must_eat)
-		philo->full_cnt++;
-	if (philo->full_cnt == philo->args.philo_num)
+		(*philo->full_cnt)++;
+	if (*philo->full_cnt == philo->args.philo_num)
 	{
 		now = get_timestamp(philo->start);
 		printf("%lu\tAll philo are full!\n", now);

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:29:24 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 12:30:21 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:27:49 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	sleeping(t_philo *philo)
 {
+	(void)philo;
 	return (0);
 }
