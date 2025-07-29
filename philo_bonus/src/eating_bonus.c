@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:29:26 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 20:39:09 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:48:46 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	update_philo_state(t_philo *philo, uint64_t *start, uint64_t *now)
 	sem_wait(philo->meal);
 	philo->last_meal_time = print_state(philo, "is eating");
 	philo->eat_cnt++;
+	if (philo->eat_cnt == philo->args.must_eat)
+		sem_post(philo->running); 
 	*start = philo->last_meal_time;
 	*now = *start;
 	sem_post(philo->meal);
