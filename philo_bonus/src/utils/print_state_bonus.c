@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sleeping_bonus.c                                   :+:      :+:    :+:   */
+/*   print_state_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 12:29:24 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 14:05:44 by ikawamuk         ###   ########.fr       */
+/*   Created: 2025/07/27 21:56:19 by ikawamuk          #+#    #+#             */
+/*   Updated: 2025/07/29 14:08:25 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
-int	sleeping(t_philo *philo)
+uint64_t	print_state(t_philo *philo, char *state)
 {
-	uint64_t	start_sleep;
-	uint64_t	now;
+	uint64_t	time;
 
-	start_sleep = print_state(philo, "is sleeping");
-	now = start_sleep;
-	while (now - start_sleep < philo->args.sleep_time)
-	{
-		if (is_finished(philo))
-			return (1);
-		usleep(100);
-		now = get_timestamp(philo->start);
-	}
-	return (0);
+	sem_wait(philo->running);
+	sem_wait(philo->print);
+	time = get_timestamp(philo->start);
+	if (!is_finished(philo))
+		printf("%lu\t%lu %s\n", time, philo->id, state);
+	sem_post(philo->print);
+	sem_post(philo->running);
+	return (time);
 }

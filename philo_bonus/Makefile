@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 02:38:16 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/29 14:02:45 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/29 14:06:21 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ BONUS_SRCFILES =	main_bonus.c\
 					get_ms_bonus.c\
 					get_timestamp_bonus.c\
 					is_finished_bonus.c\
+					print_state_bonus.c\
 					)
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRCFILES))
