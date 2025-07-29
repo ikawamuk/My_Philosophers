@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:29:26 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 14:21:25 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:39:09 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@ int	eating(t_philo *philo)
 	update_philo_state(philo, &start_eat, &now);
 	while (now - start_eat < philo->args.eat_time)
 	{
-		if (is_finished(philo))
-		{
-			sem_post(philo->forks);
-			sem_post(philo->forks);
-			return (1);
-		}
 		usleep(100);
 		now = get_timestamp(philo->start);
 	}

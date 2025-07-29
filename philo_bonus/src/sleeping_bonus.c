@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:29:24 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 17:51:18 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:39:20 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	sleeping(t_philo *philo)
 	now = start_sleep;
 	while (now - start_sleep < philo->args.sleep_time)
 	{
-		if (is_finished(philo))
-			return (1);
 		usleep(100);
 		now = get_timestamp(philo->start);
 	}
