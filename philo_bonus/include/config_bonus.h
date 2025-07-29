@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 11:45:03 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 11:51:14 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 # include <stdint.h>
 # include <stdbool.h>
 # include <stdio.h>
+# include <sys/types.h>
+# include <semaphore.h>
+
+# define SEM_FORKS		"/forks"
+# define SEM_PRINT		"/print"
+# define SEM_RUNNING	"/running"
+# define SEM_MEAL		"/meal"
 
 typedef struct s_args
 {
@@ -29,7 +36,18 @@ typedef struct s_args
 
 typedef struct s_philo
 {
-	t_args	args;
+	uint64_t	id;
+	pid_t		pid;
+	pthread_t	thread;
+	uint64_t	start;
+	uint64_t	last_meal_time;
+	uint64_t	eat_cnt;
+	bool		*is_running;
+	sem_t		*forks;
+	sem_t		*running;
+	sem_t		*print;
+	sem_t		*meal;
+	t_args		args;
 }	t_philo;
 
 #endif
