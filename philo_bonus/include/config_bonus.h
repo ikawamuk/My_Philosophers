@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 11:51:14 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 11:56:14 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include <sys/types.h>
 # include <semaphore.h>
+# include <fcntl.h>
+# include <pthread.h>
 
 # define SEM_FORKS		"/forks"
 # define SEM_PRINT		"/print"
@@ -39,6 +41,7 @@ typedef struct s_philo
 	uint64_t	id;
 	pid_t		pid;
 	pthread_t	thread;
+	t_args		args;
 	uint64_t	start;
 	uint64_t	last_meal_time;
 	uint64_t	eat_cnt;
@@ -47,7 +50,6 @@ typedef struct s_philo
 	sem_t		*running;
 	sem_t		*print;
 	sem_t		*meal;
-	t_args		args;
 }	t_philo;
 
 #endif
