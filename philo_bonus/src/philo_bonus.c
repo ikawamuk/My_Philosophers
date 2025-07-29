@@ -6,14 +6,14 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 02:43:46 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 12:02:51 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 12:22:25 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
 t_philo		set_philo(t_args args, bool *is_running);
-void		philo_process(t_philo *philo);
+void		philo_loop(t_philo *philo);
 static int	run_simulation(t_philo *philo);
 
 int	philo_bonus(t_args args)
@@ -26,7 +26,7 @@ int	philo_bonus(t_args args)
 	{
 		philo.pid = fork();
 		if (philo.pid == 0)
-			philo_process(&philo);
+			philo_loop(&philo);
 	}
 	run_simulation(&philo);
 	return (0);
