@@ -6,13 +6,16 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:13:49 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 12:20:02 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 12:20:45 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
 void	*monitor_loop(void *args);
+int		thinking(t_philo *philo);
+int		eating(t_philo *philo);
+int		sleeping(t_philo *philo);
 
 void	philo_process(t_philo *philo)
 {
@@ -34,5 +37,4 @@ void	philo_process(t_philo *philo)
 	}
 	pthread_join(philo->thread, NULL);
 	exit(0);
-	return ;
 }
