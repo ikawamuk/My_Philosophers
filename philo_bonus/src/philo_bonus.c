@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 02:43:46 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 13:48:31 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:56:15 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	philo_bonus(t_args args)
 	if (alloc_flag(&someone_died, &full_cnt) == -1)
 		return (-1);
 	philo = set_philo(args, someone_died, full_cnt);
-	while (philo.id++ <= args.philo_num)
+	while (philo.id++ < args.philo_num)
 	{
 		philo.pid = fork();
 		if (philo.pid == 0)

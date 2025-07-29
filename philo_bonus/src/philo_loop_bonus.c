@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:13:49 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 13:49:13 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:54:24 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	philo_loop(t_philo *philo)
 	philo->meal = sem_open(SEM_MEAL, O_CREAT, 600, 1);
 	pthread_create(&philo->thread, NULL, monitor_loop, (void *)philo);
 	sem_wait(philo->running);
+	sem_post(philo->running);
 	philo->start = get_ms();
 	if (philo->id % 2 == 0)
 		usleep(1000 * philo->args.eat_time / 3);

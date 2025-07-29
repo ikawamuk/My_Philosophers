@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:45:43 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 13:47:59 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:55:43 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_philo	set_philo(t_args args, bool *someone_died, uint64_t *full_cnt)
 {
 	t_philo	philo;
 
-	philo.id = 1;
+	philo.id = 0;
 	philo.pid = -1;
 	philo.thread = -1;
 	philo.args = args;
