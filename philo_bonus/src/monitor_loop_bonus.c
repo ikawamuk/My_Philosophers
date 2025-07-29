@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:22:04 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 13:53:11 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:58:14 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static bool	is_all_full(t_philo *philo)
 	bool		is_all_full;
 	uint64_t	now;
 
+	if (philo->args.must_eat == 0)
+		return (false);
 	is_all_full = false;
 	sem_wait(philo->meal);
 	sem_wait(philo->running);
