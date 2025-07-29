@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:22:04 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 13:58:14 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:02:23 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void	*monitor_loop(void *args)
 	philo = (t_philo *)args;
 	while (1)
 	{
-		printf("HERE\n");
 		if (someone_died(philo))
-			break ;	
+			break ;
 		if (is_all_full(philo))
 			break ;
 		usleep(500);
