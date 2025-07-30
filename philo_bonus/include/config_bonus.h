@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 01:01:37 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 03:05:25 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define SEM_START		"/start"
 # define SEM_DEAD		"/dead"
 # define SEM_FULL		"/full"
+# define SEM_MEAL		"/meal"
 
 typedef struct s_sem
 {
@@ -37,6 +38,7 @@ typedef struct s_sem
 	sem_t	*start;
 	sem_t	*dead;
 	sem_t	*full;
+	sem_t	*meal;
 }	t_sem;
 
 typedef struct s_args
