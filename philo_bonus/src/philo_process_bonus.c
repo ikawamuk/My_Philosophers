@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 01:05:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 02:04:31 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 02:14:43 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*philo_process(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	sem_wait(philo->sems.start);
+	philo->start = get_ms();
 	while (1)
 	{
 		thinking(philo);
