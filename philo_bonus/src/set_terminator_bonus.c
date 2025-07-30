@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 00:33:02 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 02:23:07 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 02:27:16 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void	*terminator_dead(void *arg)
 
 	philo = arg;
 	sem_wait(philo->sems.dead);
-	sem_wait(philo->sems.print);
 	kill_all_philo(philo->args.philo_num, philo->pids);
 	return (NULL);
 }
