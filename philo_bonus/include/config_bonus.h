@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 00:41:50 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 00:52:23 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_sem
 	sem_t	*print;
 	sem_t	*start;
 	sem_t	*someone_dead;
+	sem_t	*all_full;
 }	t_sem;
 
 typedef struct s_philo
