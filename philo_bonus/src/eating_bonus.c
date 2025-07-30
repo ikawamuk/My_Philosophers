@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 01:21:51 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 03:32:03 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 03:41:36 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	eating(t_philo *philo)
 	}
 	sem_post(philo->sems.forks);
 	sem_post(philo->sems.forks);
-	return ;	
+	return ;
 }

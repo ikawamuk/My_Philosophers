@@ -6,14 +6,14 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 00:33:02 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 02:27:16 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 03:43:26 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
 static void	*terminator_full(void *arg);
-static void *terminator_dead(void *arg);
+static void	*terminator_dead(void *arg);
 static void	kill_all_philo(uint64_t philo_num, pid_t *pids);
 
 void	set_terminator(t_philo *philo)
@@ -40,7 +40,7 @@ static void	*terminator_dead(void *arg)
 
 static void	*terminator_full(void *arg)
 {
-	t_philo	*philo;
+	t_philo		*philo;
 	uint64_t	i;
 
 	philo = arg;
@@ -56,9 +56,9 @@ static void	*terminator_full(void *arg)
 static void	kill_all_philo(uint64_t philo_num, pid_t *pids)
 {
 	uint64_t	i;
-	
+
 	i = 0;
 	while (i < philo_num)
 		kill(pids[i++], SIGKILL);
-	return ;		
+	return ;
 }

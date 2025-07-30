@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 23:57:51 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 02:17:26 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 03:41:52 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void		*philo_process(void *arg);
 void		set_terminator(t_philo *philo);
 void		run_simulation(t_philo *philo);
 static void	wait_all_process(uint64_t philo_num, pid_t *pids);
-
 
 int	philo_bonus(t_args args)
 {
@@ -43,9 +42,9 @@ int	philo_bonus(t_args args)
 static void	wait_all_process(uint64_t philo_num, pid_t *pids)
 {
 	uint64_t	i;
-	
+
 	i = 0;
 	while (i < philo_num)
 		waitpid(pids[i++], NULL, 0);
-	return ;	
+	return ;
 }
