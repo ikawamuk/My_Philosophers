@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 00:52:23 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 01:01:37 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,17 @@
 # define SEM_FORKS		"/forks"
 # define SEM_PRINT		"/print"
 # define SEM_START		"/start"
-# define SEM_MEAL		"/meal"
+# define SEM_DEAD		"/dead"
+# define SEM_FULL		"/full"
+
+typedef struct s_sem
+{
+	sem_t	*forks;
+	sem_t	*print;
+	sem_t	*start;
+	sem_t	*dead;
+	sem_t	*full;
+}	t_sem;
 
 typedef struct s_args
 {
@@ -38,15 +48,6 @@ typedef struct s_args
 	uint64_t	must_eat;
 }	t_args;
 
-typedef struct s_sem
-{
-	sem_t	*forks;
-	sem_t	*print;
-	sem_t	*start;
-	sem_t	*someone_dead;
-	sem_t	*all_full;
-}	t_sem;
-
 typedef struct s_philo
 {
 	uint64_t	id;
@@ -56,7 +57,7 @@ typedef struct s_philo
 	uint64_t	last_meal_time;
 	uint64_t	eat_cnt;
 	t_sem		sems;
-
+	pid_t		*pids;
 }	t_philo;
 
 #endif

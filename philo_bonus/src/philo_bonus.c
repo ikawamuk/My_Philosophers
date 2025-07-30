@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 23:57:51 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 00:54:46 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 01:02:29 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,21 @@ void	run_simulation(t_philo *philo);
 int	philo_bonus(t_args args)
 {
 	t_philo	philo;
-	pid_t	*pids;
 
 	philo = set_philo(args);
-	pids = malloc(sizeof(pid_t) * args.philo_num);
-	if (!pids)
+	philo.pids = malloc(sizeof(pid_t) * args.philo_num);
+	if (!philo.pids)
 		return (-1);
 	while (philo.id < args.philo_num)
 	{
-		pids[philo.id++] = forks();
-		if (pids == 0)
+		philo.pids[philo.id] = fork();
+		if (philo.pids[philo.id++] == 0)
 			philo_loop(&philo);
+		sleep(3);
+		sem_post(philo.sems.dead);
 	}
-	set_monitor(philo, pids);
+	set_monitor(&philo, philo.pids);
 	run_simulation(&philo);
-	free(pids);
+	free(philo.pids);
 	return (0);
 }
