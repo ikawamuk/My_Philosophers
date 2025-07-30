@@ -6,22 +6,19 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:56:19 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 01:05:36 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 01:20:40 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
 
-// uint64_t	print_state(t_philo *philo, char *state)
-// {
-// 	uint64_t	time;
+uint64_t	print_state(t_philo *philo, char *state)
+{
+	uint64_t	time;
 
-// 	sem_wait(philo->running);
-// 	sem_wait(philo->print);
-// 	time = get_timestamp(philo->start);
-// 	if (!is_finished(philo))
-// 		printf("%lu\t%lu %s\n", time, philo->id, state);
-// 	sem_post(philo->print);
-// 	sem_post(philo->running);
-// 	return (time);
-// }
+	sem_wait(philo->sems.print);
+	time = get_timestamp(philo->start);
+	printf("%lu\t%lu %s\n", time, philo->id, state);
+	sem_post(philo->sems.print);
+	return (time);
+}
