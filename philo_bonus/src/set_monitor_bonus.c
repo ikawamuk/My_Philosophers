@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 00:33:02 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 01:12:28 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 01:17:18 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	*monitor_full(void *arg)
 	while (i++ < philo->args.philo_num)
 		sem_wait(philo->sems.full);
 	kill_all_philo(philo->args.philo_num, philo->pids);
+	printf("HERE3\n");
 	return (NULL);
 }
 

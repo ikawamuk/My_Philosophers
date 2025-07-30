@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 01:05:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 01:16:24 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 01:17:29 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*philo_process(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	sem_post(philo->sems.dead);
+	sem_post(philo->sems.full);
 	exit(0);
 	return (arg);
 }
