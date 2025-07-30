@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 01:05:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 03:09:53 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 03:35:11 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	*philo_process(void *arg)
 	t_philo		*philo;
 	pthread_t	monitor;
 	philo = (t_philo *)arg;
-	pthread_create(&monitor, NULL, monitor_thread, (void *)philo);
-	pthread_detach(monitor);
 	sem_wait(philo->sems.start);
 	philo->start = get_ms();
+	pthread_create(&monitor, NULL, monitor_thread, (void *)philo);
+	pthread_detach(monitor);
 	while (1)
 	{
 		thinking(philo);
