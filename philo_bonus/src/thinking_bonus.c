@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 02:10:48 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 02:12:13 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 02:50:56 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 
 void	thinking(t_philo *philo)
 {
-	print_state(philo, "is thinking");	
+	print_state(philo, "is thinking");
+	usleep(200);
+	if (philo->args.philo_num != 1)
+		sem_wait(philo->sems.forks);
+	print_state(philo, "has taken a fork");
+	if (philo->args.philo_num == 1)
+	{
+		usleep(1000 * philo->args.life_time);
+		return ;
+	}
+	sem_wait(philo->sems.forks);
+	print_state(philo, "has taken a fork");
 	return ;
 }

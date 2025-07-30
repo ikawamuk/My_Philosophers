@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 01:21:51 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 02:13:29 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 02:42:57 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,19 @@ void	eating(t_philo *philo)
 	uint64_t	start_eat;
 	uint64_t	now;
 
-	start_eat = print_state(philo, "is eating");
+	
+	philo->last_meal_time = print_state(philo, "is eating");
+	philo->eat_cnt++;
+	if (philo->eat_cnt == philo->args.must_eat)
+		sem_post(philo->sems.full);
+	start_eat = philo->last_meal_time;
 	now = start_eat;
 	while (now - start_eat < philo->args.eat_time)
 	{
 		usleep(100);
 		now = get_timestamp(philo->start);
 	}
-	usleep(200);	
+	sem_post(philo->sems.forks);
+	sem_post(philo->sems.forks);
 	return ;	
 }
