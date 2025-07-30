@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 00:33:02 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 02:19:58 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 02:23:07 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	*terminator_dead(void *arg)
 
 	philo = arg;
 	sem_wait(philo->sems.dead);
+	sem_wait(philo->sems.print);
 	kill_all_philo(philo->args.philo_num, philo->pids);
 	return (NULL);
 }
@@ -47,8 +48,8 @@ static void	*terminator_full(void *arg)
 	i = 0;
 	while (i++ < philo->args.philo_num)
 		sem_wait(philo->sems.full);
-	kill_all_philo(philo->args.philo_num, philo->pids);
 	sem_wait(philo->sems.print);
+	kill_all_philo(philo->args.philo_num, philo->pids);
 	printf("All philosophers are full!\n");
 	return (NULL);
 }
