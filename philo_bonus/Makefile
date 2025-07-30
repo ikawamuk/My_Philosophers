@@ -6,7 +6,7 @@
 #    By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 02:38:16 by ikawamuk          #+#    #+#              #
-#    Updated: 2025/07/31 01:16:37 by ikawamuk         ###   ########.fr        #
+#    Updated: 2025/07/31 02:17:11 by ikawamuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ BONUS_SRCFILES =	main_bonus.c\
 					philo_bonus.c\
 					set_philo_bonus.c\
 					philo_process_bonus.c\
-					set_monitor_bonus.c\
+					set_terminator_bonus.c\
 					run_simulation_bonus.c\
 					thinking_bonus.c\
 					eating_bonus.c\
