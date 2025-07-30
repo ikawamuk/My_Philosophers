@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 00:33:02 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/31 01:04:56 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/31 01:12:28 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	*monitor_full(void *arg);
 static void *monitor_dead(void *arg);
 static void	kill_all_philo(uint64_t philo_num, pid_t *pids);
-static void	wait_all_process(uint64_t philo_num, pid_t *pids);
 
 void	set_monitor(t_philo *philo)
 {
@@ -34,7 +33,7 @@ static void	*monitor_dead(void *arg)
 	philo = arg;
 	sem_wait(philo->sems.dead);
 	kill_all_philo(philo->args.philo_num, philo->pids);
-	wait_all_process(philo->args.philo_num, philo->pids);
+	printf("HERE2\n");
 	return (NULL);
 }
 
@@ -48,18 +47,7 @@ static void	*monitor_full(void *arg)
 	while (i++ < philo->args.philo_num)
 		sem_wait(philo->sems.full);
 	kill_all_philo(philo->args.philo_num, philo->pids);
-	wait_all_process(philo->args.philo_num, philo->pids);
 	return (NULL);
-}
-
-static void	wait_all_process(uint64_t philo_num, pid_t *pids)
-{
-	uint64_t	i;
-	
-	i = 0;
-	while (i < philo_num)
-		waitpid(pids[i++], NULL, 0);
-	return ;	
 }
 
 static void	kill_all_philo(uint64_t philo_num, pid_t *pids)
