@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:37:52 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 20:34:30 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/07/30 23:56:21 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ typedef struct s_philo
 	uint64_t	start;
 	uint64_t	last_meal_time;
 	uint64_t	eat_cnt;
-	bool		*someone_died;
 	sem_t		*forks;
-	sem_t		*running;
 	sem_t		*print;
 	sem_t		*meal;
 }	t_philo;
