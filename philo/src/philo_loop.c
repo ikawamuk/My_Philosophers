@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:53:41 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 17:50:30 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/08/01 15:06:39 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	odd_case_sleep(t_philo *philo)
 {
 	uint64_t	break_time;
 
-	if ((philo->id - 1) % 2 == 0)
+	if ((philo->id - 1) % 2 != 0)
 	{
 		break_time = philo->ctx->eat_time / (philo->ctx->philo_num - 1);
 		break_time *= ((2 * philo->ctx->philo_num) - philo->id);
