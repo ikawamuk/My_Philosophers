@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:53:41 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/08/01 15:06:39 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/08/02 22:04:37 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	*philo_loop(void *arg)
 	take_break(philo);
 	while (1)
 	{
-		if (thinking(philo) == 1)
+		if (thinking(philo) == END)
 			break ;
-		if (eating(philo) == 1)
+		if (eating(philo) == END)
 			break ;
-		if (sleeping(philo) == 1)
+		if (sleeping(philo) == END)
 			break ;
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:35:49 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/08/02 22:00:47 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/08/02 22:06:30 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main(int ac, char *av[])
 {
 	t_args	args;
 
-	if (perse_arg(ac, av, &args) == -1)
+	if (perse_arg(ac, av, &args) == ERROR)
 		return (EXIT_FAILURE);
-	if (philo_bonus(args) == -1)
+	if (philo_bonus(args) == ERROR)
 	{
 		printf("Error\n");
 		return (EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 12:27:23 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/08/02 22:03:01 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/08/02 22:05:36 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	eating(t_philo *philo)
 		{
 			pthread_mutex_unlock(philo->right_fork);
 			pthread_mutex_unlock(philo->left_fork);
-			return (1);
+			return (END);
 		}
 		usleep(100);
 		now = get_timestamp(philo->ctx->start);
