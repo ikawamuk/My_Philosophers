@@ -6,14 +6,14 @@
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 12:35:49 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/29 14:02:28 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/08/02 22:00:47 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 #include <stdio.h>
 
-int	perse_arg(int ac, char *av[], t_args *args);
+int	parse_arg(int ac, char *av[], t_args *args);
 
 int	main(int ac, char *av[])
 {

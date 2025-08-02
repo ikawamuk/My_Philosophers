@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   perse_arg_bonus.c                                  :+:      :+:    :+:   */
+/*   parse_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikawamuk <ikawamuk@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 08:04:29 by ikawamuk          #+#    #+#             */
-/*   Updated: 2025/07/26 13:36:01 by ikawamuk         ###   ########.fr       */
+/*   Updated: 2025/08/02 22:00:33 by ikawamuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils_bonus.h"
+#include "utils.h"
 
 int			validate(int ac, char *av[]);
 static int	convert_argv(int ac, char *av[], t_args *args);
 static int	invalid_value(int ac, t_args args);
 
-int	perse_arg(int ac, char *av[], t_args *args)
+int	parse_arg(int ac, char *av[], t_args *args)
 {
 	if (validate(ac, av) == -1)
 		return (-1);
